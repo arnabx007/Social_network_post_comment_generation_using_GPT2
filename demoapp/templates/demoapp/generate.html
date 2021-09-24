@@ -1,0 +1,46 @@
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Comment Generator</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+  </head>
+
+  <body>
+    <h2>Generate Unique Comments for Social Network Post</h2>
+    <p></p>
+
+    <form method='post' action='' class='form-group'> 
+
+      {% csrf_token %}
+      <label for="post">Post:</label> 
+      <!-- <input type="text" name='context' placeholder='Put the context here' class="form-control"> -->
+      <textarea name='post' placeholder='Put the post here' class="form-control" rows="5"></textarea>
+
+      <!-- <label for="question2">Another Question:</label> 
+      <input type="text" name='question2' placeholder='Ask another question' class="form-control"> --> 
+
+      <p></p>
+      <button type="submit" class="btn btn-primary mb-2">Generate</button>
+    </form>
+
+    {% if formdata.comment %}
+
+    <p><b>Post: </b> {{formdata.post}}</p>
+
+    <p><b>Category: </b> {{formdata.category}}</p>
+
+    <p><b>Entities: </b></p>
+    {% for key, value in formdata.ner.items %}
+    <li><b>{{key}}:</b> {{value}}</li>
+    {% endfor %}
+    <p></p>
+
+    <p><b>Generated comment: </b> {{formdata.comment}}</p>
+
+    {% endif %}
+
+  </body>
+</html>

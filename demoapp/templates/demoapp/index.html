@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Demo Website</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+  </head>
+  <body>
+
+    <a href="https://www.djangoproject.com/">Link to the official Django website</a>
+    <p></p>
+    <!-- <img src="https://www.python.org/static/img/python-logo.png" alt="No internet connection/Image not found"> -->
+
+    <h3>Django Documentation:</h3>
+
+    <a href="https://docs.djangoproject.com/en/3.2/">
+    <img src="https://avatars.githubusercontent.com/u/27804?s=280&v=4" 
+    alt="No internet connection/Image not found">
+    </a>
+    <p></p>
+
+    <form method='post' enctype="multipart/form-data">
+      {% csrf_token %}
+      <label for="uploaded_file">Select a file:</label>
+      <p></p>
+      <input type="file" name="uploaded_file"> 
+      <p></p>
+      <button type="submit" class="btn btn-primary mb-2">Upload</button>
+    </form>
+    
+    <p></p>
+    <a href="/qaform/">Help to make BQuAD bigger</a>
+    <p></p>
+    <a href="/askqa/">Test our QA model</a>
+    <p></p>
+    <a href="/askqa_en/">Test The English QA model</a>
+
+  </body>
+</html>
