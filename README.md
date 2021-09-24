@@ -8,7 +8,7 @@ This is a demo project that generates comment for a social network post. It has 
 ![alt text](https://github.com/arnabx007/Social_network_post_comment_generation_using_GPT2/blob/master/sample.gif "")
 
 ### Underneath the hood:
-* OpenAI's pretrained NLG model **GPT2** has been used for comment generation. Read the paper [here](https://github.com/openai/gpt-2). Huggingface's transformer library has been used to load the model and generate texts.
+* OpenAI's pretrained NLG model **GPT2-Medium** (345M parameters)has been used for comment generation. Read the paper [here](https://github.com/openai/gpt-2). Huggingface's transformer library has been used to load the model and generate texts.
 * An **ALBERT** model fine-tuned on category detection detects the category of the post. [albert-base-v2](https://huggingface.co/albert-base-v2) model is has been fine-tuned on this [Topic Labeled News Dataset](https://www.kaggle.com/kotartemiy/topic-labeled-news-dataset) from Kaggle.
 * The **en_core_web_sm**, multi-task CNN [model](https://github.com/explosion/spacy-models/releases/tag/en_core_web_sm-3.1.0) trained on OntoNotes, with GloVe vectors trained on Common Crawl, does the entity extraction task.
 * The web app automatically stores the post and the generated comment in a MongoDB database and checks for uniquness of the generated comment.
@@ -50,3 +50,7 @@ https://s3.amazonaws.com/models.huggingface.co/bert/gpt2-pytorch_model.bin
 Run `python -m unittest test.py` for running the test code for comment generation. 
 The testcase is built on top of python's `unittest` module and runs test for unique comment generation. Change the `post` variable and it will run test cases for 2 generated comments not to be the same. 
 
+## Future Features
+* A Social media like web interface where unique comments will be generated and shown simultaneously. 
+* Making use of the larger GPT2 model (1.5 Billion parameters), or the new and the largest NLG model GPT3 API.
+* Having a swagger.
